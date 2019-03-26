@@ -12,10 +12,11 @@
   "scripts": {
     "build": "tsc",
     "build-loader": "rollup loader.ts --format iife --file dist/loader.js",
-    "start": "concurrently 'yarn watch' 'yarn server' 'yarn prettier-watch'",
-    "watch": "onchange 'index.ts, loader.ts' -- yarn build",
-    "server": "yarn build && nodemon dist/index.js",
-    "prettier-watch": "onchange 'index.ts, loader.ts' -- prettier --write {{changed}}"
+    "start": "concurrently 'yarn watch' 'yarn server' 'yarn prettier-watch' 'yarn watch-loader'",
+    "watch": "onchange '*.ts' -- yarn build",
+    "watch-loader": "onchange '*.ts' -- yarn build-loader",
+    "server": "yarn build && yarn build-loader && nodemon dist/index.js",
+    "prettier-watch": "onchange '*.ts' -- prettier --write {{changed}}"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
