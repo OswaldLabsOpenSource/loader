@@ -6,11 +6,14 @@ const server = fastify();
 readFile(join(__dirname, "loader.js"), (error, data) => {
   if (error) throw new Error(error.message);
   server.get("/:apikey", (request, reply) => {
+    const script = request.params.apikey.includes("staging-")
+      ? data.toString().replace("secure-agastya-cdn", "staging-agastya-cdn")
+      : data.toString();
     const loader =
-      data.toString() +
+      script +
       `window.a11ySettings=window.a11ySettings||{};window.a11ySettings.token="${encodeURIComponent(
-        request.params.apikey.replace(".js", "")
-      ) || "demo"}";`;
+        request.params.apikey.replace("staging-", "").replace(".js", "")
+      ) || "demo"}";\n`;
     reply
       .code(200)
       .header("ETag", "oswald-labs-3cdebe")
