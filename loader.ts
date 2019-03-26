@@ -3,7 +3,7 @@ const request = new XMLHttpRequest();
 request.onreadystatechange = () => {
   if (4 === request.readyState) {
     const data = JSON.parse(request.responseText);
-    const scriptUrl = `/agastya.${data.cacheKey}.js`;
+    const scriptUrl: string = `/agastya.${data.cacheKey}.js`;
     const script = document.createElement("script");
     script.setAttribute("data-cacheKey", data.cacheKey);
     script.setAttribute("data-baseUrl", cdnUrl);

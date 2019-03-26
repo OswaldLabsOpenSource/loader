@@ -10,20 +10,26 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "build-loader": "rollup loader.ts --format iife --file dist/loader.js",
-    "start": "concurrently 'yarn watch' 'yarn server' 'yarn prettier-watch' 'yarn watch-loader'",
-    "watch": "onchange '*.ts' -- yarn build",
-    "watch-loader": "onchange '*.ts' -- yarn build-loader",
-    "server": "yarn build && yarn build-loader && nodemon dist/index.js",
-    "prettier-watch": "onchange '*.ts' -- prettier --write {{changed}}"
+    "build": "yarn build-loader && tsc",
+    "build-loader": "rollup -c rollup.config.ts",
+    "start": "concurrently 'yarn watch' 'yarn server' 'yarn prettier-watch'",
+    "watch": "onchange '*.{ts,js}' -- yarn build",
+    "server": "yarn build && nodemon dist/index.js",
+    "prettier-watch": "onchange '*.{ts,js}' -- prettier --write {{changed}}"
   },
   "devDependencies": {
+    "@types/node": "^11.11.7",
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.10",
     "onchange": "^5.2.0",
     "prettier": "^1.16.4",
     "rollup": "^1.7.3",
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-uglify": "^6.0.2",
+    "tslib": "^1.9.3",
     "typescript": "^3.3.4000"
+  },
+  "dependencies": {
+    "fastify": "^2.1.0"
   }
 }
