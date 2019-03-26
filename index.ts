@@ -21,7 +21,7 @@ readFile(join(__dirname, "loader.js"), (error, data) => {
       .header("Cache-Control", "public, max-age=31556926")
       .send(loader);
   });
-  server.listen(3008, (error, address) => {
+  server.listen(8080, (error, address) => {
     if (error) throw new Error(error.message);
     console.log(`Agastya Loader listening on ${address}`);
   });
