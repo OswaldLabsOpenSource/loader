@@ -11,15 +11,18 @@
   ],
   "scripts": {
     "build": "tsc",
-    "start": "concurrently 'yarn watch' 'yarn prettier-watch'",
-    "watch": "yarn build && nodemon dist/index.js",
-    "prettier-watch": "onchange 'index.ts' -- prettier --write {{changed}}"
+    "build-loader": "rollup loader.ts --format iife --file dist/loader.js",
+    "start": "concurrently 'yarn watch' 'yarn server' 'yarn prettier-watch'",
+    "watch": "onchange 'index.ts, loader.ts' -- yarn build",
+    "server": "yarn build && nodemon dist/index.js",
+    "prettier-watch": "onchange 'index.ts, loader.ts' -- prettier --write {{changed}}"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.10",
     "onchange": "^5.2.0",
     "prettier": "^1.16.4",
+    "rollup": "^1.7.3",
     "typescript": "^3.3.4000"
   }
 }
