@@ -18,7 +18,7 @@
     "prettier-watch": "onchange '*.{ts,js}' -- prettier --write {{changed}}"
   },
   "devDependencies": {
-    "@types/node": "^11.12.2",
+    "@types/node": "^11.12.3",
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.10",
     "onchange": "^5.2.0",
