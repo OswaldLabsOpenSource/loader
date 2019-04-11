@@ -23,7 +23,7 @@
     "nodemon": "^1.18.11",
     "onchange": "^5.2.0",
     "prettier": "^1.16.4",
-    "rollup": "^1.9.2",
+    "rollup": "^1.9.3",
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-uglify": "^6.0.2",
     "tslib": "^1.9.3",
