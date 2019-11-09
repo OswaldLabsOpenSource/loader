@@ -22,7 +22,7 @@
     "concurrently": "^5.0.0",
     "nodemon": "^1.19.4",
     "onchange": "^6.1.0",
-    "prettier": "^1.19.0",
+    "prettier": "^1.19.1",
     "rollup": "^1.26.3",
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-uglify": "^6.0.3",
