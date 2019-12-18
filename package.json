@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^12.12.20",
-    "concurrently": "^5.0.1",
+    "concurrently": "^5.0.2",
     "nodemon": "^2.0.2",
     "onchange": "^6.1.0",
     "prettier": "^1.19.1",
