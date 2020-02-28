@@ -30,6 +30,6 @@
     "typescript": "^3.8.2"
   },
   "dependencies": {
-    "fastify": "^2.12.0"
+    "fastify": "^2.12.1"
   }
 }
